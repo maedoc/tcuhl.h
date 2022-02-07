@@ -76,7 +76,11 @@ template <typename T> struct hvec : bvec<T, hvec<T>> {
 
   __host__
   hvec(int len_) : bvec<T, hvec<T>>(nullptr, len_) {
+#ifdef TCUHL_DONT_PIN
     this->buf = (T*) malloc(this->nbytes);
+#else
+    cudaMallocHost(&this->buf, this->nbytes);
+#endif
     memset(this->buf, 0, this->nbytes);
     // printf("hvec malloc %p %d B\n", this->buf, this->nbytes);
   }
