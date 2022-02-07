@@ -40,14 +40,14 @@ bar.from(foo_on_device);
 auto has_4_element = foo + 1;
 auto has_2_element = (foo + 1).slice(1,2);
 
-// compile with -DTCHUL_BOUNDSCHECK
+// compile with -DTCUHL_BOUNDSCHECK
 // results in a printf message about out of bounds
 auto x = foo_on_device[6];
 ```
 
 ### pybind11 "integration"
 
-If you `-DTCHUL_HVEC_PY_ARRAY_CTOR_PLZ` then constructor for `hvec<T>` 
+If you `-DTCUHL_HVEC_PY_ARRAY_CTOR_PLZ` then constructor for `hvec<T>` 
 from `pybind11:array_t<T>` is made available, so you can just
 ```c++
 method(pybind11::array_t<T> x) {
