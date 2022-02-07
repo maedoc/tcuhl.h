@@ -56,8 +56,9 @@ method(pybind11::array_t<T> x) {
 ```
 and the transfer happens automatically.
 
-### "pinned" vector
+### Pinned memory
 
-TODO, it doesn't pin the memory yet.
+`hvec<T>` vectors allocate so-called pinned memory on the host for faster transfers.
+This can be disabled with `-DTCUHL_DONT_PIN`.
 
 
